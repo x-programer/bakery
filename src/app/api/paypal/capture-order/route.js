@@ -1,15 +1,15 @@
 import { NextResponse } from 'next/server';
-import paypal from '@/utils/paypal';
-import paypal from '@paypal/checkout-server-sdk';
+import paypalUtils from '@/utils/paypal';
+import paypalSDK from '@paypal/checkout-server-sdk';
 
 export async function POST(request) {
   try {
     const { orderID } = await request.json();
 
-    const captureRequest = new paypal.orders.OrdersCaptureRequest(orderID);
+    const captureRequest = new paypalSDK.orders.OrdersCaptureRequest(orderID);
     captureRequest.requestBody({});
 
-    const capture = await paypal.client().execute(captureRequest);
+    const capture = await paypalSDK.client().execute(captureRequest);
 
     if (capture.result.status === 'COMPLETED') {
       return NextResponse.json({ 
