@@ -2,7 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+.hero-text {
+  background: url('../../public/main_cake.jpg') no-repeat center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.zoom:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  background-color: white;
+}
+
+
+
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -24,4 +46,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
